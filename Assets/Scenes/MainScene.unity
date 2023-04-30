@@ -203,6 +203,10 @@ PrefabInstance:
       value: Stylized Astronaut
       objectReference: {fileID: 0}
     - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: gravity
       value: 6.14
       objectReference: {fileID: 0}
@@ -211,12 +215,36 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
+      propertyPath: turnSpeed
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
+      propertyPath: _walkSpeed
+      value: 8.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: jumpHeight
-      value: 15.65
+      value: 8.81
       objectReference: {fileID: 0}
     - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: doubleJumpMultiplier
       value: 2.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
+      propertyPath: _doubleJumpMultiplier
+      value: 0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640599521461603932, guid: 015be29f1b401bc4297cc27384602813, type: 3}
+      propertyPath: jumpForce
+      value: 5.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640599521461603932, guid: 015be29f1b401bc4297cc27384602813, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640599521461603932, guid: 015be29f1b401bc4297cc27384602813, type: 3}
+      propertyPath: groundDistance
+      value: 1.92
       objectReference: {fileID: 0}
     - target: {fileID: 8267789314844802461, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: m_Enabled
@@ -372,7 +400,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 103
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -398,7 +426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
