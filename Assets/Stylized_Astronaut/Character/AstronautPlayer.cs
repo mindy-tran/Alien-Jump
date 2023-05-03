@@ -36,6 +36,8 @@ namespace AstronautPlayer
 
 	    private CharacterController _controller;
 
+		private AudioSource jump_sound;
+
 	    private float _directionY;
 	    private float _currentSpeed;
 
@@ -51,14 +53,19 @@ namespace AstronautPlayer
 
 		public float turnSpeed = 400.0f;
 
+
 	    void Start()
 	    {
 	        _controller = GetComponent<CharacterController>();
 	        anim = gameObject.GetComponentInChildren<Animator>();
+			jump_sound = GetComponent<AudioSource>();
 	    }
 
 	    void Update()
 	    {
+			if(Input.GetKeyDown(KeyCode.Space)){
+				jump_sound.Play();
+			}
 	        if (_movementMode == MovementMode.Strafe)
 	        {
 	            MovementStafe();
