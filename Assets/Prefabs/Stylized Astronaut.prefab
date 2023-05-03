@@ -188,6 +188,8 @@ GameObject:
   - component: {fileID: 5593195909030888029}
   - component: {fileID: 4801537835727769194}
   - component: {fileID: 3609532288184472944}
+  - component: {fileID: 3564863074310324329}
+  - component: {fileID: 769642423755652217}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -322,6 +324,32 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3564863074310324329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5593195909017292591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a1be94abaffe049b41eec2d83bf3ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0
+--- !u!114 &769642423755652217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5593195909017292591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a1be94abaffe049b41eec2d83bf3ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0
 --- !u!1 &5593195909017292593
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,6 +904,7 @@ GameObject:
   - component: {fileID: 5593195909026790557}
   - component: {fileID: 5593195910366287653}
   - component: {fileID: 5593195910366287650}
+  - component: {fileID: 9108032872223572025}
   m_Layer: 0
   m_Name: Stylized Astronaut
   m_TagString: Untagged
@@ -964,6 +993,19 @@ MonoBehaviour:
   turnSmoothTime: 0.2
   speedSmoothTime: 0.1
   turnSpeed: 400
+--- !u!114 &9108032872223572025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5593195909017292627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a1be94abaffe049b41eec2d83bf3ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: -1
 --- !u!1 &5593195909017292629
 GameObject:
   m_ObjectHideFlags: 0
