@@ -52,14 +52,19 @@ namespace AstronautPlayer
 
 		public float turnSpeed = 400.0f;
 
+		public GameObject winText;
+
 
 	    void Start()
 	    {
 	        _controller = GetComponent<CharacterController>();
 	        anim = gameObject.GetComponentInChildren<Animator>();
 			jump_sound = GetComponent<AudioSource>();
+
+			winText.SetActive(false);
 	        
 	    }
+		
 
 	    void Update()
 	    {
@@ -79,6 +84,7 @@ namespace AstronautPlayer
 
 	    }
 
+
 	    private void LateUpdate()
 	    {
 	        if (IsPlayerMoving() && _movementMode == MovementMode.Strafe)
@@ -90,7 +96,14 @@ namespace AstronautPlayer
 			if(other.gameObject.CompareTag("Enemy")){
 				other.gameObject.SetActive(false);
 			}
+			//makes the win text show up when the player interacts with the flag
+			if (other.gameObject.CompareTag("Finish")){
+				winText.SetActive(true);
+				print("FINISH");
+			}
+
 		}
+	
 
 	    private bool IsPlayerMoving()
 	    {
