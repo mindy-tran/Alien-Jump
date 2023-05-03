@@ -58,6 +58,7 @@ namespace AstronautPlayer
 	        _controller = GetComponent<CharacterController>();
 	        anim = gameObject.GetComponentInChildren<Animator>();
 			jump_sound = GetComponent<AudioSource>();
+	        
 	    }
 
 	    void Update()
