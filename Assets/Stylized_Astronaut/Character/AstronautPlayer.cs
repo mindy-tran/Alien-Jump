@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 
 
-
 namespace AstronautPlayer
 {
 	public class AstronautPlayer : MonoBehaviour
@@ -84,6 +83,13 @@ namespace AstronautPlayer
 	        if (IsPlayerMoving() && _movementMode == MovementMode.Strafe)
 	            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, _cameraRig.transform.localEulerAngles.y, transform.localEulerAngles.z);
 	    }
+
+		private void OnTriggerEnter(Collider other){
+			//makes enemy dissapear when player collides with them
+			if(other.gameObject.CompareTag("Enemy")){
+				other.gameObject.SetActive(false);
+			}
+		}
 
 	    private bool IsPlayerMoving()
 	    {
