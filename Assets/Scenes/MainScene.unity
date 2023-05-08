@@ -589,6 +589,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3564863074310324329, guid: 015be29f1b401bc4297cc27384602813, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3564863074310324329, guid: 015be29f1b401bc4297cc27384602813, type: 3}
+      propertyPath: threshold
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3909808735263275765, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: gravity
       value: 6.14
@@ -599,6 +607,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4102792857253199362, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801537835727769194, guid: 015be29f1b401bc4297cc27384602813, type: 3}
+      propertyPath: gravity
+      value: 9.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801537835727769194, guid: 015be29f1b401bc4297cc27384602813, type: 3}
+      propertyPath: jumpSpeed
+      value: 10.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801537835727769194, guid: 015be29f1b401bc4297cc27384602813, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486556345440822109, guid: 015be29f1b401bc4297cc27384602813, type: 3}
@@ -623,7 +643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5593195909017195379, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5593195909017195379, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: m_LocalPosition.z
@@ -667,7 +687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: gravity
-      value: 6.14
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: winText
@@ -675,11 +695,11 @@ PrefabInstance:
       objectReference: {fileID: 902611580}
     - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: jumpSpeed
-      value: 1
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: turnSpeed
-      value: 250
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: _jumpSpeed
@@ -692,6 +712,10 @@ PrefabInstance:
     - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: jumpHeight
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
+      propertyPath: nrOfAlowedDJumps
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5593195910366287650, guid: 015be29f1b401bc4297cc27384602813, type: 3}
       propertyPath: doubleJumpMultiplier
@@ -726,6 +750,7 @@ PrefabInstance:
     - {fileID: 8221128469012953375, guid: 015be29f1b401bc4297cc27384602813, type: 3}
     - {fileID: 8424618041215601562, guid: 015be29f1b401bc4297cc27384602813, type: 3}
     - {fileID: 620546814283694956, guid: 015be29f1b401bc4297cc27384602813, type: 3}
+    - {fileID: 769642423755652217, guid: 015be29f1b401bc4297cc27384602813, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 015be29f1b401bc4297cc27384602813, type: 3}
 --- !u!1 &428726247
 GameObject:
@@ -1395,7 +1420,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 103
+  field of view: 99
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
