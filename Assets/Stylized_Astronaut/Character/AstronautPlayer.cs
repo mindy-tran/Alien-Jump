@@ -10,10 +10,11 @@ namespace AstronautPlayer
 		private CharacterController controller;
 
 		// Moving fields
-		public float speed = 600.0f;
-		public float turnSpeed = 400.0f;
+		public float speed = 7.0f;
+		public float turnSpeed = 120.0f;
 		private Vector3 moveDirection = Vector3.zero;
-		public float gravity = 8.0f;
+		public float gravity = 32.0f;
+		private float doubleJumpMultiplier = 1f;
 
 		public GameObject winText;
 		private AudioSource jump_sound;
@@ -21,7 +22,6 @@ namespace AstronautPlayer
 		// Jumping fields
 	    [SerializeField]
 	    float jumpSpeed = 8;
-	    //bool isJumping; // "controller.isGrounded" can be used instead
 	    [SerializeField]
 	    int nrOfAlowedDJumps = 2; // New vairable
 	    int dJumpCounter = 0;     // New variable
@@ -30,7 +30,6 @@ namespace AstronautPlayer
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
 			jump_sound = GetComponent<AudioSource>();
-
 			winText.SetActive(false);
 		}
 
@@ -50,40 +49,52 @@ namespace AstronautPlayer
 
 		void Update ()
 		{
-			
-
 			if (Input.GetKey ("w")) {
 				anim.SetInteger ("AnimationPar", 1);
 			}  else {
-				anim.SetInteger ("AnimationPar", 0);
-			}
-
-			if(Input.GetButtonDown("Jump") || Input.GetButton("Jump")){
-				moveDirection.x = Input.GetAxis("Horizontal") * speed;
-		        moveDirection.z = Input.GetAxis("Vertical") * speed;
-				// if not in the air, then jump
-				if (controller.isGrounded) {
-	                moveDirection.y = jumpSpeed;
-	                dJumpCounter = 0;
-	                jump_sound.Play();
-	            }
-	            // multi-jump
-	            if (!controller.isGrounded && dJumpCounter < nrOfAlowedDJumps) {
-	                moveDirection.y = jumpSpeed;
-	                dJumpCounter++;
-	                jump_sound.Play();
-	            }
+				anim?.SetInteger ("AnimationPar", 0);
 			}
 
 			if(controller.isGrounded){
 				moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
 			}
 
+			// if(Input.GetButtonDown("Jump") || Input.GetButton("Jump")){
+			// 	moveDirection.x = Input.GetAxis("Horizontal") * speed;
+		    //     moveDirection.z = Input.GetAxis("Vertical") * speed;
+		    //     jump_sound.Play();
+
+			// 	// if not in the air, then jump
+			// 	if (controller.isGrounded) {
+	        //         moveDirection.y = jumpSpeed;
+	        //         dJumpCounter = 0;
+	        //     }
+	        //     // multi-jump
+	        //     if (!controller.isGrounded && dJumpCounter < nrOfAlowedDJumps) {
+	        //         moveDirection.y = jumpSpeed * doubleJumpMultiplier;
+	        //         dJumpCounter++;
+	        //     }
+			// }
+
+			if (Input.GetButtonDown ("Jump")) {
+				jump_sound.Play();
+	            if (controller.isGrounded) {
+	                moveDirection.y = jumpSpeed;
+	                dJumpCounter = 0;
+	            }
+	            if (!controller.isGrounded && dJumpCounter < nrOfAlowedDJumps) {
+	                moveDirection.y = jumpSpeed;
+	                dJumpCounter++;
+	            }
+	        }
+			
 			float turn = Input.GetAxis("Horizontal");
 			transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
 			controller.Move(moveDirection * Time.deltaTime);
 			moveDirection.y -= gravity * Time.deltaTime;
+
 		}
+
 	}
 }
 
