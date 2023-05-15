@@ -4,6 +4,7 @@
  public class GameRespawn : MonoBehaviour {
      public float threshold;
      public GameObject saveText;
+     public AudioSource checkpointSound;
      
      private Vector3 spawnpoint = new Vector3(0f,0f,0f); //spawn on the center platform
  
@@ -25,6 +26,7 @@
                     // we are at a new spawn point so we need to update it
                     spawnpoint = transform.position;
                     saveText.SetActive(true);
+                    checkpointSound.Play();
                     Invoke("EndSaveText", 3f);
                 
 
