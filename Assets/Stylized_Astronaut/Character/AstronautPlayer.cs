@@ -9,6 +9,9 @@ namespace AstronautPlayer
 		private Animator anim;
 		private CharacterController controller;
 
+		public AudioSource winSound;
+		public AudioSource backgroundMusic;
+
 		// Moving fields
 		public float speed = 7.0f;
 		public float turnSpeed = 120.0f;
@@ -40,6 +43,11 @@ namespace AstronautPlayer
 			}
 			//makes the win text show up when the player interacts with the flag
 			if (other.gameObject.CompareTag("Finish")){
+				if(!winSound.isPlaying)
+            	{
+					winSound.Play();
+            	}
+				backgroundMusic.Pause();
 				winText.SetActive(true);
 				print("FINISH");
 			}
