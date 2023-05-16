@@ -14,7 +14,6 @@ namespace AstronautPlayer
 		public float turnSpeed = 120.0f;
 		private Vector3 moveDirection = Vector3.zero;
 		public float gravity = 32.0f;
-		private float doubleJumpMultiplier = 1f;
 
 		public GameObject winText;
 		private AudioSource jump_sound;
@@ -59,23 +58,7 @@ namespace AstronautPlayer
 				moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
 			}
 
-			// if(Input.GetButtonDown("Jump") || Input.GetButton("Jump")){
-			// 	moveDirection.x = Input.GetAxis("Horizontal") * speed;
-		    //     moveDirection.z = Input.GetAxis("Vertical") * speed;
-		    //     jump_sound.Play();
-
-			// 	// if not in the air, then jump
-			// 	if (controller.isGrounded) {
-	        //         moveDirection.y = jumpSpeed;
-	        //         dJumpCounter = 0;
-	        //     }
-	        //     // multi-jump
-	        //     if (!controller.isGrounded && dJumpCounter < nrOfAlowedDJumps) {
-	        //         moveDirection.y = jumpSpeed * doubleJumpMultiplier;
-	        //         dJumpCounter++;
-	        //     }
-			// }
-
+			// jump and double jump
 			if (Input.GetButtonDown ("Jump")) {
 				jump_sound.Play();
 	            if (controller.isGrounded) {
