@@ -11,6 +11,7 @@ namespace AstronautPlayer
 
 		public AudioSource winSound;
 		public AudioSource backgroundMusic;
+		private AudioSource jump_sound;
 
 		// Moving fields
 		public float speed = 7.0f;
@@ -19,7 +20,6 @@ namespace AstronautPlayer
 		public float gravity = 32.0f;
 
 		public GameObject winText;
-		private AudioSource jump_sound;
 
 		// Jumping fields
 	    [SerializeField]
@@ -47,6 +47,8 @@ namespace AstronautPlayer
             	{
 					winSound.Play();
             	}
+
+            	
 				backgroundMusic.Pause();
 				winText.SetActive(true);
 				print("FINISH");
@@ -83,7 +85,6 @@ namespace AstronautPlayer
 			transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
 			controller.Move(moveDirection * Time.deltaTime);
 			moveDirection.y -= gravity * Time.deltaTime;
-
 		}
 
 	}
