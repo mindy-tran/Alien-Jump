@@ -28,6 +28,8 @@ namespace AstronautPlayer
 	    int nrOfAlowedDJumps = 2; // New vairable
 	    int dJumpCounter = 0;     // New variable
 
+		private int numJumps = 0;
+
 		void Start () {
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
@@ -48,13 +50,13 @@ namespace AstronautPlayer
 					winSound.Play();
             	}
 
-            	
 				backgroundMusic.Pause();
 				winText.SetActive(true);
 				print("FINISH");
 			}
 
 		}
+
 
 		void Update ()
 		{
@@ -66,21 +68,17 @@ namespace AstronautPlayer
 
 			if(controller.isGrounded){
 				moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
+				numJumps = 0;
 			}
 
-			// jump and double jump
-			if (Input.GetButtonDown ("Jump")) {
-	            if (controller.isGrounded) {
-	                moveDirection.y = jumpSpeed;
-	                dJumpCounter = 0;
-					jump_sound.Play();
-	            }
-	            if (!controller.isGrounded && dJumpCounter < nrOfAlowedDJumps) {
-	                moveDirection.y = jumpSpeed;
-	                dJumpCounter++;
-					jump_sound.Play();
-	            }
+			// double jump
+			if (Input.GetKeyDown(KeyCode.Space) && (numJumps < nrOfAlowedDJumps)) 
+			{
+				moveDirection.y = jumpSpeed;
+				numJumps++;
+				jump_sound.Play();
 	        }
+		
 			
 			float turn = Input.GetAxis("Horizontal");
 			transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
