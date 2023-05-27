@@ -70,14 +70,15 @@ namespace AstronautPlayer
 
 			// jump and double jump
 			if (Input.GetButtonDown ("Jump")) {
-				jump_sound.Play();
 	            if (controller.isGrounded) {
 	                moveDirection.y = jumpSpeed;
 	                dJumpCounter = 0;
+					jump_sound.Play();
 	            }
 	            if (!controller.isGrounded && dJumpCounter < nrOfAlowedDJumps) {
 	                moveDirection.y = jumpSpeed;
 	                dJumpCounter++;
+					jump_sound.Play();
 	            }
 	        }
 			
