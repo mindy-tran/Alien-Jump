@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     public float minWaitSec; 
     public float maxWaitSec; 
 
+    public Transform target;
+
     private bool isDead;
     private Vector3 moveDirection = Vector3.zero;
 
@@ -54,6 +56,8 @@ public class Enemy : MonoBehaviour
 
         controller.Move(moveDirection * Time.deltaTime);
         moveDirection.y -= 32.0f * Time.deltaTime;
+
+        //transform.LookAt(target);
 
     }
 
