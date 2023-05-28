@@ -60,35 +60,17 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnTriggerEnter(Collider other){
         // do this so the character will stick to the platform
-        print(other.transform.lossyScale);
+        //print(other.transform.lossyScale);
 
         other.transform.SetParent(transform);
+        
+        //print(other.transform.localRotation);
         //print(other.transform.lossyScale);
-        //print(other.transform.localScale);
-        print(other.transform.localRotation);
-        //print(other.transform.localToWorldMatrix);
-        //Quaternion temp_rotation = other.transform.localRotation;
-
-        //other.transform.localRotation = Quaternion.identity;
-      
-        //print("change");
-        //print(other.transform.localRotation);
-
-        //other.transform.localScale = new Vector3(5.66f, 12, 4);
-        //print(other.transform.localRotation);
-
-
-        //other.transform.localRotation = temp_rotation;
-
-
-        print(other.transform.lossyScale);
-
-        print("triggered");
     }
 
     private void OnTriggerExit(Collider other) {
         other.transform.SetParent(null);
-        //other.transform.localScale = new Vector3(1, 1, 1);
+        other.transform.localScale = new Vector3(1, 1, 1);
 
     }
     
