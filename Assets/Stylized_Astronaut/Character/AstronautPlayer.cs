@@ -73,17 +73,14 @@ namespace AstronautPlayer
 		{
 			if (Input.GetKey ("w") || Input.GetKey(KeyCode.UpArrow)) {
 				anim.SetInteger ("AnimationPar", 1);
-				anim?.SetInteger ("Idle", 0);
 			}  else {
 				anim?.SetInteger ("AnimationPar", 0);
-				anim.SetInteger ("Idle", 1);
 			}
 
 			if(controller.isGrounded){
 				moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
 				numJumps = 0;
 			} else {
-				anim?.SetInteger ("Idle", 0);
 				anim?.SetInteger ("AnimationPar", 0);
 			}
 
@@ -93,8 +90,7 @@ namespace AstronautPlayer
 				moveDirection.y = jumpSpeed;
 				numJumps++;
 				jump_sound.Play();
-	        }
-		
+	        }	
 			
 			float turn = Input.GetAxis("Horizontal");
 			transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
