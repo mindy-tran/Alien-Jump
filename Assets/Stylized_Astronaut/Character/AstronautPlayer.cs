@@ -82,6 +82,9 @@ namespace AstronautPlayer
 			if(controller.isGrounded){
 				moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
 				numJumps = 0;
+			} else {
+				anim?.SetInteger ("Idle", 0);
+				anim?.SetInteger ("AnimationPar", 0);
 			}
 
 			// double jump
