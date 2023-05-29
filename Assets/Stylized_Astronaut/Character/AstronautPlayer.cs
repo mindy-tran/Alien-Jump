@@ -80,9 +80,6 @@ namespace AstronautPlayer
 			if(controller.isGrounded){
 				moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
 				numJumps = 0;
-			} else {
-				// stops walking animation in mid air
-				anim?.SetInteger ("AnimationPar", 0);
 			}
 
 			// double jump
