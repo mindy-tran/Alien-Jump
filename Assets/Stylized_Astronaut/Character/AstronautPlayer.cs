@@ -81,16 +81,23 @@ namespace AstronautPlayer
 				moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
 				numJumps = 0;
 			} else {
+				// stops walking animation in mid air
 				anim?.SetInteger ("AnimationPar", 0);
 			}
 
 			// double jump
 			if (Input.GetKeyDown(KeyCode.Space) && (numJumps < nrOfAlowedDJumps)) 
 			{
+				if (numJumps == 1){
+					//flip animation if double jump
+					anim.SetBool ("isJumping", true);
+				}
 				moveDirection.y = jumpSpeed;
 				numJumps++;
 				jump_sound.Play();
-	        }	
+	        } else {
+				anim.SetBool ("isJumping", false);
+			}	
 			
 			float turn = Input.GetAxis("Horizontal");
 			transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
