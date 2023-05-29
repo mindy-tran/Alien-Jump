@@ -73,8 +73,10 @@ namespace AstronautPlayer
 		{
 			if (Input.GetKey ("w") || Input.GetKey(KeyCode.UpArrow)) {
 				anim.SetInteger ("AnimationPar", 1);
+				anim?.SetInteger ("Idle", 0);
 			}  else {
 				anim?.SetInteger ("AnimationPar", 0);
+				anim.SetInteger ("Idle", 1);
 			}
 
 			if(controller.isGrounded){
