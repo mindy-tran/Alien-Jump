@@ -18,6 +18,7 @@ namespace AstronautPlayer
 		public float turnSpeed = 120.0f;
 		private Vector3 moveDirection = Vector3.zero;
 		public float gravity = 32.0f;
+		public float knockback = 3;
 
 		public GameObject winText;
 
@@ -30,6 +31,8 @@ namespace AstronautPlayer
 
 		private int numJumps = 0;
 
+		private Vector3 impact = Vector3.zero;
+
 		void Start () {
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
@@ -41,7 +44,16 @@ namespace AstronautPlayer
 		{
 			//makes enemy dissapear when player collides with them
 			if(other.gameObject.CompareTag("Enemy")){
-				other.gameObject.SetActive(false);
+				if (transform.position.y - other.transform.position.y > 1 ){
+					// jumped on top
+					other.gameObject.SetActive(false); // kill the enemey
+				} else {
+					// ememy hit player --> knockpack
+					impact = moveDirection * -1 * knockback;
+
+					
+				}
+				
 			}
 			//makes the win text show up when the player interacts with the flag
 			if (other.gameObject.CompareTag("Finish")){
@@ -52,7 +64,6 @@ namespace AstronautPlayer
 
 				backgroundMusic.Pause();
 				winText.SetActive(true);
-				print("FINISH");
 			}
 
 		}
@@ -60,7 +71,7 @@ namespace AstronautPlayer
 
 		void Update ()
 		{
-			if (Input.GetKey ("w")) {
+			if (Input.GetKey ("w") || Input.GetKey(KeyCode.UpArrow)) {
 				anim.SetInteger ("AnimationPar", 1);
 			}  else {
 				anim?.SetInteger ("AnimationPar", 0);
@@ -74,14 +85,24 @@ namespace AstronautPlayer
 			// double jump
 			if (Input.GetKeyDown(KeyCode.Space) && (numJumps < nrOfAlowedDJumps)) 
 			{
+				if (numJumps == 1){
+					//flip animation if double jump
+					anim.SetBool ("isJumping", true);
+				}
 				moveDirection.y = jumpSpeed;
 				numJumps++;
 				jump_sound.Play();
-	        }
-		
+	        } else {
+				anim.SetBool ("isJumping", false);
+			}	
 			
 			float turn = Input.GetAxis("Horizontal");
 			transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
+			if (impact != Vector3.zero){
+				moveDirection = impact;
+				impact = Vector3.zero;
+			}
+
 			controller.Move(moveDirection * Time.deltaTime);
 			moveDirection.y -= gravity * Time.deltaTime;
 		}

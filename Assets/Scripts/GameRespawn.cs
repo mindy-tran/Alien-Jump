@@ -6,7 +6,7 @@
      public GameObject saveText;
      public AudioSource checkpointSound;
      
-     private Vector3 spawnpoint = new Vector3(0f,0f,0f); //spawn on the center platform
+     private Vector3 spawnpoint = new Vector3(0f,1f,0f); //spawn on the center platform
  
 
      void Start(){
