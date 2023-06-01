@@ -21,6 +21,7 @@ namespace AstronautPlayer
 		public float knockback = 3;
 
 		public GameObject winText;
+		public GameObject pauseMenu;
 
 		// Jumping fields
 	    [SerializeField]
@@ -38,6 +39,7 @@ namespace AstronautPlayer
 			anim = gameObject.GetComponentInChildren<Animator>();
 			jump_sound = GetComponent<AudioSource>();
 			winText.SetActive(false);
+			pauseMenu.SetActive(false);
 		}
 
 		private void OnTriggerEnter(Collider other)
