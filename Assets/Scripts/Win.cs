@@ -33,13 +33,11 @@ public class Win : MonoBehaviour
         float secs = float.Parse(timerText.text.Split(":")[1]);
 
         float time = (60 * mins) + secs;
-        print(time);
         
         s_1.SetActive(false);
         s_2.SetActive(false);
         s_3.SetActive(false);
 
-        print(time1star);
 
         if ((time < time1star)){
             // under time get one star
