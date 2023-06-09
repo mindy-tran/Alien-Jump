@@ -4,6 +4,7 @@
  public class GameRespawn : MonoBehaviour {
      public float threshold;
      public GameObject saveText;
+     public GameObject tutorialControls;
      public AudioSource checkpointSound;
      
      private Vector3 spawnpoint = new Vector3(0f,1f,0f); //spawn on the center platform
@@ -11,6 +12,7 @@
 
      void Start(){
         saveText.SetActive(false);
+        tutorialControls.SetActive(false);
      }
 
 
@@ -32,6 +34,11 @@
 
                 }
             }
+
+            //tutorial controls will pop up when character is at Lv1 start
+			if (other.gameObject.CompareTag("Start")){
+				tutorialControls.SetActive(true);
+			}
      }
 
      private void EndSaveText(){
