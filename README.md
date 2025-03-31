@@ -1,7 +1,7 @@
 # Alien Jump!
 CS 410: Game Programming final game
 
-Access game at the link below:
+Access game at the link:
 https://mindy-tran.github.io/Alien-Jump-Game/
 
 
